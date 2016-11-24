@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23"
+
+    defaultConfig {
+        applicationId "com.sinch.android.rtc.sample.video"
+        minSdkVersion 15
+        targetSdkVersion 17
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            // jniLibs.srcDir 'src/main/jniLibs'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // TODO: Uncomment the following compilation lines
+    //    compile 'io.pristine:libjingle:9694@aar'
+    //    compile 'com.pubnub:pubnub-android:3.7.4'
+    //    compile 'me.kevingleason:pnwebrtc:1.0.6@aar'
+    compile files('libs/sinch-android-rtc-3.9.8-javadoc.jar')
+    compile files('libs/sinch-android-rtc-3.9.8.jar')
+}
